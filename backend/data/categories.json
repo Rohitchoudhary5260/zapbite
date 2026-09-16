@@ -1,0 +1,82 @@
+[
+  {
+    "id": "cat_fruits_veg",
+    "name": "Fruits & Vegetables",
+    "icon": "🥦",
+    "badge": "Fresh Farm",
+    "itemCount": 42,
+    "image": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=500&auto=format&fit=crop&q=60",
+    "color": "#E8F8EE",
+    "accentColor": "#0C8346"
+  },
+  {
+    "id": "cat_dairy_breakfast",
+    "name": "Dairy, Bread & Eggs",
+    "icon": "🥛",
+    "badge": "Morning 7AM",
+    "itemCount": 38,
+    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop&q=60",
+    "color": "#FFF4E5",
+    "accentColor": "#FF9F1C"
+  },
+  {
+    "id": "cat_munchies",
+    "name": "Munchies & Chips",
+    "icon": "🍟",
+    "badge": "Party Bites",
+    "itemCount": 55,
+    "image": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=500&auto=format&fit=crop&q=60",
+    "color": "#FEECEC",
+    "accentColor": "#EF4444"
+  },
+  {
+    "id": "cat_instant_food",
+    "name": "Instant & Ready Food",
+    "icon": "🍜",
+    "badge": "2-Min Craving",
+    "itemCount": 30,
+    "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&auto=format&fit=crop&q=60",
+    "color": "#FEF3C7",
+    "accentColor": "#D97706"
+  },
+  {
+    "id": "cat_cold_drinks",
+    "name": "Cold Drinks & Juices",
+    "icon": "🥤",
+    "badge": "Chilled ⚡",
+    "itemCount": 45,
+    "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=500&auto=format&fit=crop&q=60",
+    "color": "#E0F2FE",
+    "accentColor": "#0284C7"
+  },
+  {
+    "id": "cat_sweets_chocolates",
+    "name": "Sweets & Chocolates",
+    "icon": "🍫",
+    "badge": "Sweet Tooth",
+    "itemCount": 34,
+    "image": "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=500&auto=format&fit=crop&q=60",
+    "color": "#FCE7F3",
+    "accentColor": "#DB2777"
+  },
+  {
+    "id": "cat_bakery",
+    "name": "Bakery & Biscuits",
+    "icon": "🥐",
+    "badge": "Oven Fresh",
+    "itemCount": 28,
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop&q=60",
+    "color": "#F3E8FF",
+    "accentColor": "#7C3AED"
+  },
+  {
+    "id": "cat_tea_coffee",
+    "name": "Tea, Coffee & Drinks",
+    "icon": "☕",
+    "badge": "Brew Fresh",
+    "itemCount": 24,
+    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=60",
+    "color": "#EDE9FE",
+    "accentColor": "#6D28D9"
+  }
+]

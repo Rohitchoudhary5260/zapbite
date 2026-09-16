@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ban_1",
+    "title": "⚡ 10 MINUTE DELIVERY",
+    "subtitle": "Get fresh groceries & hot snacks delivered in a blink",
+    "discount": "UP TO 50% OFF",
+    "cta": "Order Now",
+    "tag": "SUPERFAST",
+    "bgColor": "#0C8346",
+    "accentColor": "#00FF7F",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=60"
+  },
+  {
+    "id": "ban_2",
+    "title": "🥛 Morning Breakfast Fest",
+    "subtitle": "Farm fresh milk, brown eggs, artisanal butter & bread",
+    "discount": "FLAT ₹50 OFF",
+    "cta": "Explore Dairy",
+    "tag": "MORNING SPECIAL",
+    "bgColor": "#FF9F1C",
+    "accentColor": "#FFE58F",
+    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=800&auto=format&fit=crop&q=60"
+  },
+  {
+    "id": "ban_3",
+    "title": "🍟 Late Night Craving Club",
+    "subtitle": "Gourmet chips, dips, ice creams & fizzy cold drinks",
+    "discount": "BUY 1 GET 1 FREE",
+    "cta": "Grab Munchies",
+    "tag": "NIGHT EXPRESS",
+    "bgColor": "#8B5CF6",
+    "accentColor": "#DDD6FE",
+    "image": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=800&auto=format&fit=crop&q=60"
+  },
+  {
+    "id": "ban_4",
+    "title": "🥦 Farm Fresh Organic Harvest",
+    "subtitle": "Directly sourced crisp veggies & premium juicy fruits",
+    "discount": "EXTRA 20% CASHBACK",
+    "cta": "Shop Fresh",
+    "tag": "100% ORGANIC",
+    "bgColor": "#059669",
+    "accentColor": "#A7F3D0",
+    "image": "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&auto=format&fit=crop&q=60"
+  }
+]
