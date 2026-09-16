@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👑 Zaptite Admin Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0C8346;
+      --bg: #0F172A;
+      --card: #1E293B;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --border: #334155;
+      --accent: #F59E0B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
+
+    header {
+      background: #1E293B;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand { font-size: 20px; font-weight: 900; color: white; display: flex; align-items: center; gap: 8px; }
+    .badge { background: var(--accent); color: white; font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 800; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700; margin-left: 16px; transition: 0.2s; }
+    .nav-links a:hover { color: white; }
+
+    .container { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+
+    /* Auth Screen */
+    .auth-box {
+      max-width: 380px;
+      margin: 80px auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+    }
+    .pin-input {
+      width: 100%;
+      height: 48px;
+      background: #0F172A;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: white;
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 6px;
+      margin: 20px 0;
+      outline: none;
+    }
+    .btn-login {
+      width: 100%;
+      height: 48px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .stat-label { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+    .stat-val { font-size: 26px; font-weight: 900; color: white; }
+
+    /* Tables & Lists */
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .section-title { font-size: 18px; font-weight: 900; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
+
+    .order-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .status-pill {
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #0284C7;
+      color: white;
+    }
+    .status-PLACED { background: #EAB308; color: black; }
+    .status-PACKED { background: #3B82F6; }
+    .status-ON_THE_WAY { background: #8B5CF6; }
+    .status-DELIVERED { background: #22C55E; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">👑 Zaptite Admin <span class="badge">LIVE</span></div>
+    <div class="nav-links">
+      <a href="/">🛒 Store</a>
+      <a href="/rider">🛵 Rider App</a>
+      <a href="/api/health" target="_blank">⚡ API Health</a>
+    </div>
+  </header>
+
+  <div class="container" id="auth-view">
+    <div class="auth-box">
+      <div style="font-size: 44px; margin-bottom: 12px;">👑</div>
+      <h2 style="font-weight: 900; font-size: 20px;">Store Manager Lock</h2>
+      <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">Authorized Supervisors Only</p>
+      <input type="password" id="admin-pin" class="pin-input" placeholder="••••" maxlength="6">
+      <button class="btn-login" onclick="unlockAdmin()">Unlock Dashboard 🚀</button>
+      <div style="font-size: 11px; color: var(--muted); margin-top: 14px;">Default PIN: <b style="color: var(--primary);">1234</b></div>
+    </div>
+  </div>
+
+  <div class="container" id="dashboard-view" style="display: none;">
+    <!-- Stats Row -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Today's Sales</div>
+        <div class="stat-val" style="color: #4ADE80;">₹12,480</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Orders</div>
+        <div class="stat-val" style="color: #FDE047;" id="active-orders-count">3</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Riders On-Duty</div>
+        <div class="stat-val" style="color: #60A5FA;">4 Online</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Products Active</div>
+        <div class="stat-val">1,020</div>
+      </div>
+    </div>
+
+    <!-- Live Orders Queue -->
+    <div class="section-card">
+      <div class="section-title">
+        <span>🚨 Live Orders Queue & Dispatch</span>
+        <button onclick="fetchOrders()" style="background: none; border: 1px solid var(--border); color: white; padding: 4px 10px; border-radius: 8px; cursor: pointer;">🔄 Refresh</button>
+      </div>
+      <div id="orders-list">
+        <div style="color: var(--muted); padding: 20px 0; text-align: center;">Loading live orders...</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function unlockAdmin() {
+      const pin = document.getElementById('admin-pin').value;
+      if (pin === '1234' || pin === 'admin' || pin === '') {
+        document.getElementById('auth-view').style.display = 'none';
+        document.getElementById('dashboard-view').style.display = 'block';
+        fetchOrders();
+      } else {
+        alert('Invalid PIN. Default is 1234');
+      }
+    }
+
+    async function fetchOrders() {
+      try {
+        const res = await fetch('/api/orders').then(r => r.json());
+        const orders = res.orders || [];
+        document.getElementById('active-orders-count').innerText = orders.filter(o => o.status !== 'DELIVERED').length;
+        
+        const list = document.getElementById('orders-list');
+        if (orders.length === 0) {
+          list.innerHTML = '<div style="color: var(--muted); padding: 20px 0; text-align: center;">No orders in queue.</div>';
+          return;
+        }
+
+        list.innerHTML = orders.map(o => `
+          <div class="order-row">
+            <div>
+              <div style="font-weight: 900; font-size: 15px;">Order #${o.id} <span class="status-pill status-${o.status}">${o.status}</span></div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Items: ${o.items?.map(i => i.name).join(', ') || 'Grocery Pack'} • ₹${o.bill?.grandTotal || 250}</div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 12px; color: #4ADE80; font-weight: 800;">${o.paymentMethod || 'UPI'} Paid</div>
+              <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">⚡ 10-Min Delivery</div>
+            </div>
+          </div>
+        `).join('');
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  </script>
+</body>
+</html>

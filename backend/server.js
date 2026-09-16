@@ -31,6 +31,18 @@ app.use('/api/coupons', couponRoutes);
 app.use('/api/riders', riderRoutes);
 app.use('/api/admin', adminRoutes);
 
+// Serve static assets from public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Web Portal Routes
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
+app.get('/rider', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'rider.html'));
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({
@@ -42,22 +54,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Root welcome
+// Root welcome or Web Store
 app.get('/', (req, res) => {
-  res.send(`
-    <div style="font-family: Arial, sans-serif; padding: 40px; background: #0C8346; color: white; border-radius: 12px; margin: 40px auto; max-width: 650px;">
-      <h1>⚡ Zaptite 100% Pure Veg API Server</h1>
-      <p>10-Minute Superfast Grocery & Food Delivery with MongoDB Atlas</p>
-      <ul>
-        <li><a style="color: #FFE58F;" href="/api/health">GET /api/health</a></li>
-        <li><a style="color: #FFE58F;" href="/api/categories">GET /api/categories</a></li>
-        <li><a style="color: #FFE58F;" href="/api/products">GET /api/products (1000+ Items)</a></li>
-        <li><a style="color: #FFE58F;" href="/api/banners">GET /api/banners</a></li>
-        <li><a style="color: #FFE58F;" href="/api/coupons">GET /api/coupons</a></li>
-        <li><a style="color: #FFE58F;" href="/api/orders">GET /api/orders</a></li>
-      </ul>
-    </div>
-  `);
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Global Error Handler

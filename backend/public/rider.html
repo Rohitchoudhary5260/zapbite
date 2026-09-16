@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛵 Zaptite Rider Partner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0C8346;
+      --accent: #FDE047;
+      --bg: #F8FAF9;
+      --card: #FFFFFF;
+      --text: #1F2937;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding-bottom: 60px; }
+
+    header {
+      background: #0C8346;
+      color: white;
+      padding: 16px 20px;
+    }
+    .header-box { max-width: 600px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-size: 20px; font-weight: 900; }
+    .duty-btn {
+      background: #22C55E;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .duty-off { background: #EF4444; }
+
+    .container { max-width: 600px; margin: 20px auto; padding: 0 16px; }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .earnings-row { display: flex; justify-content: space-around; text-align: center; margin-top: 10px; }
+    .earn-val { font-size: 22px; font-weight: 900; color: var(--primary); }
+    .earn-sub { font-size: 11px; color: var(--muted); font-weight: 700; }
+
+    .order-card {
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 12px;
+      background: #F0FFF4;
+    }
+    .accept-btn {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 900;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-box">
+      <div>
+        <div class="brand">🛵 Zaptite <span style="color: var(--accent);">Rider</span></div>
+        <div style="font-size: 11px; color: #A7F3D0; font-weight: 700;">Hub #04 • Sector 62</div>
+      </div>
+      <button id="duty-toggle" class="duty-btn" onclick="toggleDuty()">● ON DUTY</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Earnings Strip -->
+    <div class="card">
+      <div style="font-weight: 800; font-size: 13px; color: var(--muted);">TODAY'S FLEET EARNINGS</div>
+      <div class="earnings-row">
+        <div>
+          <div class="earn-val">₹480</div>
+          <div class="earn-sub">Today's Pay</div>
+        </div>
+        <div>
+          <div class="earn-val">8</div>
+          <div class="earn-sub">Deliveries</div>
+        </div>
+        <div>
+          <div class="earn-val">⭐ 4.9</div>
+          <div class="earn-sub">Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Delivery Radar -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: 900; font-size: 16px;">🚨 Live Delivery Radar</span>
+        <span style="font-size: 12px; color: var(--primary); font-weight: 800;">⚡ 10-Min Fast Dispatch</span>
+      </div>
+
+      <div id="radar-content">
+        <div class="order-card">
+          <div style="display: flex; justify-content: space-between;">
+            <span style="font-weight: 900;">Order #ZT-1042</span>
+            <span style="font-weight: 900; color: var(--primary);">+₹60 Pay</span>
+          </div>
+          <div style="font-size: 12px; color: var(--muted); margin: 6px 0;">Pickup: Zaptite Dark Store #04 • Sector 62</div>
+          <div style="font-size: 12px; font-weight: 700;">Deliver to: Flat 402, Royal Palms (0.8 km)</div>
+          <button class="accept-btn" onclick="acceptDelivery()">⚡ Accept Order & Start (₹60) →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let isOnline = true;
+    function toggleDuty() {
+      isOnline = !isOnline;
+      const btn = document.getElementById('duty-toggle');
+      if (isOnline) {
+        btn.innerText = '● ON DUTY';
+        btn.className = 'duty-btn';
+      } else {
+        btn.innerText = 'OFFLINE';
+        btn.className = 'duty-btn duty-off';
+      }
+    }
+
+    function acceptDelivery() {
+      alert('🛵 Order Accepted! Proceeding to Dark Store Aisle 2 for pickup.');
+    }
+  </script>
+</body>
+</html>
