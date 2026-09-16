@@ -17,8 +17,8 @@ let localCoupons: Coupon[] = [...MOCK_COUPONS];
 let localOrders: Order[] = [...INITIAL_ORDERS];
 let localUser: User = { ...INITIAL_USER };
 
-const BASE_URL = Platform.OS === 'android' ? 'http://10.0.2.2:5000/api' : 'http://localhost:5000/api';
-const TIMEOUT_MS = 2500;
+const BASE_URL = 'https://rider-kceb.onrender.com/api';
+const TIMEOUT_MS = 6000;
 
 async function fetchWithTimeout(url: string, options: RequestInit = {}): Promise<Response> {
   const controller = new AbortController();
